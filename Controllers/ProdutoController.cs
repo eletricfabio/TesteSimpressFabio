@@ -18,7 +18,7 @@ namespace TesteSimpressFabio.Controllers
         public ActionResult Index()
         {
             var produto = db.Produto.Include(p => p.CategoriaProduto);
-            return View(db.Produto.ToList());
+            return View(produto.ToList());
         }
 
         // GET: Produto/Details/5

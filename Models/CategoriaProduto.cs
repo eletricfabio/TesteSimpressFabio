@@ -11,7 +11,8 @@ namespace TesteSimpressFabio.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class CategoriaProduto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,8 +20,10 @@ namespace TesteSimpressFabio.Models
         {
             this.Produto = new HashSet<Produto>();
         }
-    
+
+        [Key]
         public int CategoriaID { get; set; }
+        [Display(Name = "Categoria do Produto")]
         public string CategoriaNome { get; set; }
         public string CategoriaDescricao { get; set; }
         public Nullable<bool> CategoriaAtivo { get; set; }

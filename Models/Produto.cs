@@ -10,16 +10,31 @@
 namespace TesteSimpressFabio.Models
 {
     using System;
+    using System.Linq;
+    using System.Web;
     using System.Collections.Generic;
-    
-    public partial class Produto
+    using System.ComponentModel.DataAnnotations;
+
+    public class Produto
     {
+        [Key]
+        [Display(Name = "Id")]
         public int ProdutoID { get; set; }
+        [Display(Name = "Nome")]
+        [Required(ErrorMessage = "O nome do produto deve ser preenchido.")]
+        [MaxLength(250, ErrorMessage = "O nome dever ter no máximo 250 caracteres.")]
         public string ProdutoNome { get; set; }
+        [Display(Name = "Descrição")]
+        [Required(ErrorMessage = "A descrição deve ser preenchida.")]
+        [MaxLength(250, ErrorMessage = "A descrição dever ter no máximo 250 caracteres.")]
         public string ProdutoDescricao { get; set; }
-        public Nullable<bool> ProdutoAtivo { get; set; }
-        public Nullable<bool> ProdutoPerecivel { get; set; }
+        [Display(Name = "Categoria do Produto")]
         public int ProdutoCategoriaID { get; set; }
+        [Display(Name = "Ativo")]
+        public Nullable<bool> ProdutoAtivo { get; set; }
+        [Display(Name = "Perecível")]
+        public Nullable<bool> ProdutoPerecivel { get; set; }
+        
     
         public virtual CategoriaProduto CategoriaProduto { get; set; }
     }
